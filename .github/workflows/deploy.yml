@@ -19,10 +19,10 @@ jobs:
           node-version: 22.15.0  # 指定 Node.js 版本
 
       - name: Install dependencies
-        run: pnpm install  # 安装依赖
+        run: npm install  # 安装依赖
 
       - name: Build VitePress
-        run: pnpm run docs:build  # 构建 VitePress 项目
+        run: npm run docs:build  # 构建 VitePress 项目
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3  # 使用 GitHub Pages 部署 Action
