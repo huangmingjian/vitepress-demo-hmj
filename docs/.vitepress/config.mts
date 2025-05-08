@@ -43,6 +43,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
   },
-  base: '/vitepress-demo-hmj/',
+  // base: '/vitepress-demo-hmj/',
 })
 
