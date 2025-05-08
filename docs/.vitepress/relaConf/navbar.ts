@@ -7,12 +7,12 @@ export const nav: DefaultTheme.NavItem[] = [
     {
         text:'个人学习',
         items:[
-            { text: 'cesium', link: '../linklocation/learn-vitepress' },
+            { text: 'cesium', link: '/linklocation/learn-vitepress' },
             { text: '@jodvf/cesium-3d', link: '/frontend/' },
             { text: 'node.js', link: '/frontend/' },
             { text: 'tailwindcss', link: '/frontend/' },
             { text:'joplayer.js',link:'/frontend/'},
-            { text: 'vitepress', link: '../linklocation/learn-vitepress' }
+            { text: 'vitepress', link: '/linklocation/learn-vitepress' }
         ]
     },{
         text:'公司学习',
