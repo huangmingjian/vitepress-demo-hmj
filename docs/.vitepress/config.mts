@@ -24,7 +24,8 @@ export default defineConfig({
               items: [
                 { text: '项目创建', link: '/linklocation/learn-vitepress' },
                 { text: '导航栏配置', link: '/linklocation/navigationbar' },
-                { text: '侧边栏配置', link: '/linklocation/sidebar' }
+                { text: '侧边栏配置', link: '/linklocation/sidebar' },
+                { text: 'gitHub部署', link: '/linklocation/githubDeployment' }
               ]
             }
           ],
