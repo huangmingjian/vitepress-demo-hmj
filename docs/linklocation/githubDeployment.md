@@ -76,4 +76,3 @@ github_token: ${{ secrets.HMJ_TEXT_TOKEN }}
 
 2.部署后点击路由404,那是因为进入路由的绝对路径不对,可能在开发环境可以访问,但是部署后访问不了,link设置为'/linklocation/learn-vitepress',如果设置为'../linklocation/learn-vitepress' 会造成路由查找错误。
 
-
