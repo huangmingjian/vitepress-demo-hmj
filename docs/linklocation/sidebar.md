@@ -1,4 +1,4 @@
-# 导航栏配置
+# 路由配置
 ## 1.1、默认配置
 需要配置 config.mts 文件下的themeConfig.sidebar，如下代码所示:
 ```md
