@@ -72,4 +72,4 @@ pnpm exec vitepress init
 <img src="../image/body.jpg"  style="zoom:50%;" />
 
 5.自定义内容: 可以自己编写vue组件，然后引入到index.md中进行展示。
-<img src="../image/vueList.jpg"  style="zoom:50%;" />
+<img src="../image/component.jpg"  style="zoom:50%;" />
