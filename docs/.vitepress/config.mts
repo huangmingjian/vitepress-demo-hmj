@@ -18,37 +18,37 @@ export default defineConfig({
         {
           text: '后端与中间件',
           items: [
-            { text: 'Gateway 网关', link: '/linklocation/getway' },
-            { text: 'Redis', link: '/linklocation/redis' },
-            { text: 'MySQL', link: '/mysql' }
+            { text: 'Gateway 网关', link: '/linklocation/getway.html' },
+            { text: 'Redis', link: '/linklocation/redis.html' },
+            { text: 'MySQL', link: '/mysql.html' }
           ]
         },
         {
           text: '运维与部署',
           items: [
-            { text: 'Nginx', link: '/nginx' },
-            { text: 'Ubuntu / Docker / SSH', link: '/linklocation/ubuntu' },
-            { text: 'GitHub Pages 部署', link: '/linklocation/githubDeployment' }
+            { text: 'Nginx', link: '/nginx.html' },
+            { text: 'Ubuntu / Docker / SSH', link: '/linklocation/ubuntu.html' },
+            { text: 'GitHub Pages 部署', link: '/linklocation/githubDeployment.html' }
           ]
         },
         {
           text: 'VitePress 建站',
           items: [
-            { text: '项目创建', link: '/linklocation/learn-vitepress' },
-            { text: '导航栏配置', link: '/linklocation/navigationbar' },
-            { text: '侧边栏配置', link: '/linklocation/sidebar' }
+            { text: '项目创建', link: '/linklocation/learn-vitepress.html' },
+            { text: '导航栏配置', link: '/linklocation/navigationbar.html' },
+            { text: '侧边栏配置', link: '/linklocation/sidebar.html' }
           ]
         },
         {
           text: '前端与浏览器能力',
           items: [
-            { text: 'OffscreenCanvas 多线程优化', link: '/OffscreenCanvas渲染多线程优化' }
+            { text: 'OffscreenCanvas 多线程优化', link: '/OffscreenCanvas渲染多线程优化.html' }
           ]
         },
         {
           text: '面试与架构',
           items: [
-            { text: '面试 / 架构问答', link: '/linklocation/youhhua' }
+            { text: '面试 / 架构问答', link: '/linklocation/youhhua.html' }
           ]
         }
       ],
@@ -56,19 +56,19 @@ export default defineConfig({
         {
           text: 'VitePress 建站',
           items: [
-            { text: '项目创建', link: '/linklocation/learn-vitepress' },
-            { text: '导航栏配置', link: '/linklocation/navigationbar' },
-            { text: '侧边栏配置', link: '/linklocation/sidebar' },
-            { text: 'GitHub Pages 部署', link: '/linklocation/githubDeployment' }
+            { text: '项目创建', link: '/linklocation/learn-vitepress.html' },
+            { text: '导航栏配置', link: '/linklocation/navigationbar.html' },
+            { text: '侧边栏配置', link: '/linklocation/sidebar.html' },
+            { text: 'GitHub Pages 部署', link: '/linklocation/githubDeployment.html' }
           ]
         },
         {
           text: '后端与运维',
           items: [
-            { text: 'Gateway 网关', link: '/linklocation/getway' },
-            { text: 'Redis', link: '/linklocation/redis' },
-            { text: 'Ubuntu / Docker / SSH', link: '/linklocation/ubuntu' },
-            { text: '面试 / 架构问答', link: '/linklocation/youhhua' }
+            { text: 'Gateway 网关', link: '/linklocation/getway.html' },
+            { text: 'Redis', link: '/linklocation/redis.html' },
+            { text: 'Ubuntu / Docker / SSH', link: '/linklocation/ubuntu.html' },
+            { text: '面试 / 架构问答', link: '/linklocation/youhhua.html' }
           ]
         }
       ],
@@ -77,9 +77,9 @@ export default defineConfig({
           text: '学习入口',
           items: [
             { text: '学习笔记目录', link: '/learning/' },
-            { text: 'Gateway 网关', link: '/linklocation/getway' },
-            { text: 'Nginx', link: '/nginx' },
-            { text: 'MySQL', link: '/mysql' }
+            { text: 'Gateway 网关', link: '/linklocation/getway.html' },
+            { text: 'Nginx', link: '/nginx.html' },
+            { text: 'MySQL', link: '/mysql.html' }
           ]
         }
       ]

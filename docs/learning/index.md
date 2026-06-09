@@ -10,35 +10,41 @@ outline: deep
 
 | 主题 | 内容 | 链接 |
 | --- | --- | --- |
-| Gateway 网关 | Spring Cloud Gateway 路由、Path 匹配、转发、限流、熔断、跨域 | [查看笔记](/linklocation/getway) |
-| Redis | Redis 常用命令、数据结构、缓存场景 | [查看笔记](/linklocation/redis) |
-| MySQL | SQL 语句、查询、表结构、常用整理 | [查看笔记](/mysql) |
+| Gateway 网关 | Spring Cloud Gateway 路由、Path 匹配、转发、限流、熔断、跨域 | [查看笔记](/linklocation/getway.html) |
+| Redis | Redis 常用命令、数据结构、缓存场景 | [查看笔记](/linklocation/redis.html) |
+| MySQL | SQL 语句、查询、表结构、常用整理 | [查看笔记](/mysql.html) |
 
 ## 运维与部署
 
 | 主题 | 内容 | 链接 |
 | --- | --- | --- |
-| Nginx | main、events、http、server、location、反向代理、HTTPS | [查看笔记](/nginx) |
-| Ubuntu | Linux 运维、Docker、SSH、UFW、防火墙、常用命令 | [查看笔记](/linklocation/ubuntu) |
-| GitHub 部署 | VitePress 项目 GitHub Pages 部署流程 | [查看笔记](/linklocation/githubDeployment) |
+| Nginx | main、events、http、server、location、反向代理、HTTPS | [查看笔记](/nginx.html) |
+| Ubuntu | Linux 运维、Docker、SSH、UFW、防火墙、常用命令 | [查看笔记](/linklocation/ubuntu.html) |
+| GitHub 部署 | VitePress 项目 GitHub Pages 部署流程 | [查看笔记](/linklocation/githubDeployment.html) |
 
 ## VitePress 建站
 
 | 主题 | 内容 | 链接 |
 | --- | --- | --- |
-| 项目创建 | VitePress 项目初始化和基础使用 | [查看笔记](/linklocation/learn-vitepress) |
-| 导航栏配置 | nav 配置、顶部菜单配置 | [查看笔记](/linklocation/navigationbar) |
-| 侧边栏配置 | sidebar 配置、目录分组 | [查看笔记](/linklocation/sidebar) |
+| 项目创建 | VitePress 项目初始化和基础使用 | [查看笔记](/linklocation/learn-vitepress.html) |
+| 导航栏配置 | nav 配置、顶部菜单配置 | [查看笔记](/linklocation/navigationbar.html) |
+| 侧边栏配置 | sidebar 配置、目录分组 | [查看笔记](/linklocation/sidebar.html) |
 
 ## 前端与浏览器能力
 
 | 主题 | 内容 | 链接 |
 | --- | --- | --- |
-| OffscreenCanvas | Canvas 多线程渲染、Worker 优化思路 | [查看笔记](/OffscreenCanvas渲染多线程优化) |
+| OffscreenCanvas | Canvas 多线程渲染、Worker 优化思路 | [查看笔记](/OffscreenCanvas渲染多线程优化.html) |
+
+## 面试与架构
+
+| 主题 | 内容 | 链接 |
+| --- | --- | --- |
+| 面试 / 架构问答 | 常见问题、架构思路、答题整理 | [查看笔记](/linklocation/youhhua.html) |
 
 ## 后续整理规则
 
-1. 新增学习笔记时，先判断属于哪个主题，再放入对应目录。
+1. 新增学习笔记时，先判断属于哪个主题，再放入对应分类。
 2. 和 VitePress 本身相关的内容放到 `docs/linklocation/`。
 3. 后端中间件类内容可以继续放在 `docs/linklocation/` 或根目录，目录页统一收口。
 4. 新增文件后，同时更新本页和 `docs/.vitepress/config.mts` 的侧边栏。

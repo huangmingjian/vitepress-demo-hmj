@@ -15,7 +15,7 @@ hero:
       link: /learning/
     - theme: alt
       text: Gateway 网关
-      link: /linklocation/getway
+      link: /linklocation/getway.html
 
 features:
   - icon:
