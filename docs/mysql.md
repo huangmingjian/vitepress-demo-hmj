@@ -1,3 +1,187 @@
+---
+outline: deep
+---
+
+# MySQL 学习笔记
+
+> 下面先放一份排版整理版速查，后面继续保留原始学习记录，不删除原有内容。
+
+## 排版整理版速查
+
+这一节把常用 MySQL 内容先整理成清晰结构，方便页面阅读。下面的“原始学习记录”仍然保留。
+
+### 连接 MySQL
+
+```bash
+# 登录本机 MySQL
+mysql -uroot -p
+
+# 指定主机和端口
+mysql -h127.0.0.1 -P3306 -uroot -p
+```
+
+### 数据库常用命令
+
+```sql
+SHOW DATABASES;
+CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+DROP DATABASE IF EXISTS test;
+USE test;
+SHOW TABLES;
+DESC users;
+SHOW CREATE TABLE users;
+```
+
+### 数据类型速查
+
+| 分类 | 常用类型 | 说明 |
+| --- | --- | --- |
+| 整数 | `TINYINT`、`INT`、`BIGINT` | 状态、数量、主键 ID |
+| 小数 | `DECIMAL` | 金额、精确小数 |
+| 字符串 | `CHAR`、`VARCHAR`、`TEXT` | 名称、编号、正文 |
+| 时间 | `DATE`、`DATETIME`、`TIMESTAMP` | 日期、创建时间、更新时间 |
+
+### 推荐建表模板
+
+```sql
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键 ID',
+  username VARCHAR(50) NOT NULL DEFAULT '' COMMENT '用户名',
+  email VARCHAR(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  status TINYINT UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态：1启用，0禁用',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_email (email),
+  KEY idx_status (status),
+  KEY idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+```
+
+### 增删改查
+
+```sql
+INSERT INTO users (username, email)
+VALUES ('张三', 'zhangsan@example.com');
+
+UPDATE users
+SET status = 0
+WHERE id = 1;
+
+DELETE FROM users WHERE id = 1;
+
+TRUNCATE TABLE users;
+```
+
+`UPDATE` 和 `DELETE` 一定要带好 `WHERE` 条件，避免误改或误删整张表。
+
+### 查询条件
+
+```sql
+SELECT * FROM users WHERE id = 1;
+SELECT * FROM users WHERE status <> 1;
+SELECT * FROM users WHERE username LIKE '%张%';
+SELECT * FROM users WHERE id IN (1, 2, 3);
+
+SELECT * FROM users
+WHERE created_at >= '2026-06-01'
+  AND created_at < '2026-07-01';
+
+SELECT * FROM users ORDER BY created_at DESC;
+SELECT * FROM users LIMIT 10 OFFSET 20;
+```
+
+### 分组与聚合
+
+```sql
+SELECT COUNT(*) FROM users;
+SELECT COUNT(DISTINCT email) FROM users;
+
+SELECT status, COUNT(*) AS total
+FROM users
+GROUP BY status;
+
+SELECT status, COUNT(*) AS total
+FROM users
+GROUP BY status
+HAVING total > 10;
+```
+
+### 联表查询
+
+```sql
+SELECT s.id, s.name, c.course_name, c.score
+FROM students AS s
+INNER JOIN courses AS c ON s.id = c.student_id;
+
+SELECT s.id, s.name, c.course_name, c.score
+FROM students AS s
+LEFT JOIN courses AS c ON s.id = c.student_id;
+```
+
+### 索引与执行计划
+
+```sql
+CREATE INDEX idx_username ON users(username);
+CREATE UNIQUE INDEX uk_email ON users(email);
+DROP INDEX idx_username ON users;
+SHOW INDEX FROM users;
+
+EXPLAIN SELECT * FROM users WHERE email = 'zhangsan@example.com';
+```
+
+### 用户权限
+
+```sql
+SELECT user, host FROM mysql.user;
+CREATE USER 'app_user'@'%' IDENTIFIED BY 'StrongPassword_123';
+GRANT SELECT, INSERT, UPDATE, DELETE ON app_db.* TO 'app_user'@'%';
+SHOW GRANTS FOR 'app_user'@'%';
+REVOKE DELETE ON app_db.* FROM 'app_user'@'%';
+DROP USER 'app_user'@'%';
+FLUSH PRIVILEGES;
+```
+
+### 备份与恢复
+
+```bash
+mysqldump -uroot -p app_db > app_db.sql
+mysqldump -uroot -p app_db users orders > app_tables.sql
+mysqldump -uroot -p --all-databases > all.sql
+mysql -uroot -p app_db < app_db.sql
+```
+
+### 事务
+
+```sql
+SET autocommit = 0;
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+
+COMMIT;
+ROLLBACK;
+SET autocommit = 1;
+```
+
+### 慢查询与排查
+
+```sql
+SHOW VARIABLES LIKE 'slow_query_log';
+SHOW VARIABLES LIKE 'slow_query_log_file';
+SHOW VARIABLES LIKE 'long_query_time';
+
+SET GLOBAL slow_query_log = ON;
+SET GLOBAL long_query_time = 2;
+
+SHOW PROCESSLIST;
+SHOW FULL PROCESSLIST;
+SHOW ENGINE INNODB STATUS\G
+```
+
+## 原始学习记录
+
 ### docker mysql
 # 1. 删除旧的错误记录
 ssh-keygen -R 121.40.22.192
@@ -302,3 +486,207 @@ create index `索引名` on `表名`(`字段名`); // 创建索引
 drop index `索引名` on `表名`; // 删除索引
 explain select * from `表名` where `字段名` = '值'; // 索引查询
 show index from `表名`; // 显示索引信息
+
+## 常用补充与整理版速查
+
+这一节是对上面原始笔记的补充和整理，不替换原内容。
+
+### 登录与库表查看
+
+```bash
+# 登录 MySQL
+mysql -uroot -p
+
+# 指定主机和端口
+mysql -h127.0.0.1 -P3306 -uroot -p
+```
+
+```sql
+-- 查看数据库
+SHOW DATABASES;
+
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS app_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- 使用数据库
+USE app_db;
+
+-- 查看表
+SHOW TABLES;
+
+-- 查看表结构
+DESC users;
+
+-- 查看建表语句
+SHOW CREATE TABLE users;
+```
+
+### 推荐建表模板
+
+```sql
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键 ID',
+  username VARCHAR(50) NOT NULL DEFAULT '' COMMENT '用户名',
+  email VARCHAR(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  status TINYINT UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态：1启用，0禁用',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_email (email),
+  KEY idx_status (status),
+  KEY idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+```
+
+常用建议：
+
+1. 业务表优先使用 `InnoDB`。
+2. 字符集优先使用 `utf8mb4`。
+3. 金额字段使用 `DECIMAL`，不要使用 `FLOAT` 或 `DOUBLE`。
+4. 时间字段常用 `created_at`、`updated_at`。
+5. 高频查询字段可以加索引，但不要滥加。
+
+### 查询条件
+
+```sql
+-- 等于
+SELECT * FROM users WHERE id = 1;
+
+-- 不等于
+SELECT * FROM users WHERE status <> 1;
+
+-- 模糊查询
+SELECT * FROM users WHERE username LIKE '%张%';
+
+-- IN 查询
+SELECT * FROM users WHERE id IN (1, 2, 3);
+
+-- 日期范围查询，推荐左闭右开
+SELECT * FROM users
+WHERE created_at >= '2026-06-01'
+  AND created_at < '2026-07-01';
+
+-- 排序
+SELECT * FROM users ORDER BY created_at DESC;
+
+-- 分页
+SELECT * FROM users LIMIT 10 OFFSET 20;
+```
+
+### 常见 SQL 写法
+
+#### INSERT IGNORE
+
+唯一索引冲突时忽略，不报错。
+
+```sql
+INSERT IGNORE INTO users (email, username)
+VALUES ('zhangsan@example.com', '张三');
+```
+
+#### ON DUPLICATE KEY UPDATE
+
+唯一索引冲突时执行更新。
+
+```sql
+INSERT INTO users (email, username, status)
+VALUES ('zhangsan@example.com', '张三', 1)
+ON DUPLICATE KEY UPDATE
+  username = VALUES(username),
+  status = VALUES(status);
+```
+
+#### CASE WHEN
+
+```sql
+SELECT
+  username,
+  CASE status
+    WHEN 1 THEN '启用'
+    WHEN 0 THEN '禁用'
+    ELSE '未知'
+  END AS status_text
+FROM users;
+```
+
+### 用户与权限
+
+```sql
+-- 查看用户
+SELECT user, host FROM mysql.user;
+
+-- 创建用户
+CREATE USER 'app_user'@'%' IDENTIFIED BY 'StrongPassword_123';
+
+-- 授权
+GRANT SELECT, INSERT, UPDATE, DELETE ON app_db.* TO 'app_user'@'%';
+
+-- 查看授权
+SHOW GRANTS FOR 'app_user'@'%';
+
+-- 回收权限
+REVOKE DELETE ON app_db.* FROM 'app_user'@'%';
+
+-- 删除用户
+DROP USER 'app_user'@'%';
+
+-- 刷新权限
+FLUSH PRIVILEGES;
+```
+
+### 备份与恢复
+
+```bash
+# 备份单个数据库
+mysqldump -uroot -p app_db > app_db.sql
+
+# 备份指定表
+mysqldump -uroot -p app_db users orders > app_tables.sql
+
+# 备份所有数据库
+mysqldump -uroot -p --all-databases > all.sql
+
+# 恢复数据库
+mysql -uroot -p app_db < app_db.sql
+```
+
+### 慢查询日志
+
+```sql
+SHOW VARIABLES LIKE 'slow_query_log';
+SHOW VARIABLES LIKE 'slow_query_log_file';
+SHOW VARIABLES LIKE 'long_query_time';
+
+SET GLOBAL slow_query_log = ON;
+SET GLOBAL long_query_time = 2;
+```
+
+配置文件示例：
+
+```ini
+[mysqld]
+slow_query_log=ON
+slow_query_log_file=/var/log/mysql/slow.log
+long_query_time=2
+log_queries_not_using_indexes=ON
+```
+
+### 常用排查命令
+
+```sql
+SHOW PROCESSLIST;
+SHOW FULL PROCESSLIST;
+KILL 12345;
+
+SHOW VARIABLES LIKE 'max_connections';
+SHOW VARIABLES LIKE 'character_set%';
+SHOW VARIABLES LIKE 'time_zone';
+
+SHOW STATUS LIKE 'Threads_connected';
+SHOW STATUS LIKE 'Slow_queries';
+SHOW STATUS LIKE 'Questions';
+
+SHOW ENGINE INNODB STATUS\G
+SELECT * FROM information_schema.innodb_trx;
+SELECT * FROM information_schema.innodb_lock_waits;
+```
