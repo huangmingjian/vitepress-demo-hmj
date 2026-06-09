@@ -36,11 +36,6 @@ outline: deep
 | --- | --- | --- |
 | OffscreenCanvas | Canvas 多线程渲染、Worker 优化思路 | [查看笔记](/OffscreenCanvas渲染多线程优化.html) |
 
-## 面试与架构
-
-| 主题 | 内容 | 链接 |
-| --- | --- | --- |
-| 面试 / 架构问答 | 常见问题、架构思路、答题整理 | [查看笔记](/linklocation/youhhua.html) |
 
 ## 后续整理规则
 
