@@ -2,38 +2,32 @@
 layout: home
 
 hero:
-  name: "黄名健"
-  text: "Work for the love of cuisine"
-  tagline: /追随/成为/超越/
+  name: "黄名健的学习笔记"
+  text: "把知识整理成可复用的索引"
+  tagline: "记录、复盘、沉淀、继续前进"
   image:
-     src: /homeImg.jpg
-     alt: VitePress
-     style: "border-radius:50%;width:200px;height:200px"
+    src: /homeImg.jpg
+    alt: 学习笔记
+    style: "border-radius:50%;width:200px;height:200px"
   actions:
     - theme: brand
-      text: 进入主页
-      link: /markdown-examples
+      text: 进入学习目录
+      link: /learning/
     - theme: alt
-      text: 个人成长
-      link: /api-examples
+      text: Gateway 网关
+      link: /linklocation/getway
 
 features:
-  - icon: 
+  - icon:
       src: /a-013-teacher.png
-    title: web前端
-    details: 所有技术不过就是工具,善于利用工具。
-  - icon: 
+    title: 后端与中间件
+    details: Gateway、Redis、MySQL 等常用服务和基础能力整理。
+  - icon:
       src: /a-016-book.png
-    title: 热爱美食
-    details: 雪沫乳花浮午盏，蓼茸蒿笋试春盘。
-  - icon: 
+    title: 运维与部署
+    details: Nginx、Ubuntu、Docker、SSH、GitHub Pages 等部署记录。
+  - icon:
       src: /a-005-books.png
-    title: 学习机器人
-    details: 是个平平无奇但是又很热爱学习的青年
+    title: 前端与工程化
+    details: VitePress 建站、浏览器能力、性能优化和日常学习笔记。
 ---
-<!-- 
-<script setup>
-import home from './.vitepress/components/home.vue';
-</script>
-
-<home /> -->
