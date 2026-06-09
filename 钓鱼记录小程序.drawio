@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="ThNnVMnwKTuA7-qzcqOM" name="第 1 页">
+        <mxGraphModel dx="949" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" adaptiveColors="simple">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;首页&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="分页查找" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="编辑中心" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="个人中心" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;首页&lt;/h1&gt;&lt;div&gt;用于展示昨日钓鱼记录，可根据地点区域展示前10名，默认展示所有记录总和，不做过多的功能，只做展示&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="110" width="140" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;鱼类列表&lt;/h1&gt;&lt;p&gt;用于展示所有记录，按地区，河流，池塘，人员，默认以时间更新。只做筛选记录。查看每个人掉的大鱼&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="120" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;编辑中心&lt;/h1&gt;&lt;p&gt;只做编辑处理，用户默认增加池塘，河流，地区，并发布自己的记录，，然后做记录展示。&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="110" width="170" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;个人中心&lt;/h1&gt;&lt;div&gt;记录自己的吊具，个人中心的设置，收藏的帖子，自己的评论记录，历史记录，以及帖子回复提醒和评论回复提醒。&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="120" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="详情页:标题，文本，图片，地区，人员介绍，评论区，收藏，点赞" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="560" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="发帖：标题，可不输入，就会以日期和地区合并展示标题，文本，图片必输入，地区，可选择，鱼类：可选择性输入，钓具介绍，可不输入。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="560" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="增加类型：地区增加，省市区湖&lt;div&gt;增加鱼类：草鱼等等未记录鱼类&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="560" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="钓具编辑：文本输入" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="评论记录：被回复的评论消息展示，点击后进入具体帖子" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="收藏列表：单纯点击后进入具体帖子" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="个人设置：名称，头像，个人照片不必输入，手机号不必输入，邮箱，个人签名。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="浏览记录：点击帖子存储记录，然后点击后可进入具体帖子" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
